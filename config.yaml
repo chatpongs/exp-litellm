@@ -1,0 +1,10 @@
+model_list:
+  - model_name: glm-5-turbo
+    litellm_params:
+      model: openai/zai-coding-plan/glm-5-turbo
+      api_base: https://api.z.ai/api/coding/paas/v4
+      api_key: os.environ/ZAI_API_KEY
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: "postgresql://postgres:postgres@host.docker.internal:5432/litellm"
