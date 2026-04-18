@@ -1,0 +1,13 @@
+meta {
+  name: list
+  type: http
+}
+
+get {
+  url: {{base_url}}/key/list
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{master_key}}
+}

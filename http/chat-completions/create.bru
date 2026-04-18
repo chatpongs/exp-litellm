@@ -1,0 +1,30 @@
+meta {
+  name: create
+  type: http
+}
+
+post {
+  url: {{base_url}}/chat/completions
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{master_key}}
+}
+
+body:json {
+  {
+    "model": "glm-5-turbo",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      }
+    ]
+  }
+}

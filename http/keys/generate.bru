@@ -1,0 +1,24 @@
+meta {
+  name: generate
+  type: http
+}
+
+post {
+  url: {{base_url}}/key/generate
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{master_key}}
+}
+
+body:json {
+  {
+    "max_budget": 10
+  }
+}
