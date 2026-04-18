@@ -1,23 +1,23 @@
 model_list:
-  - model_name: openai/glm-5-turbo
+  - model_name: zai/o/glm-5-turbo
     litellm_params:
       model: openai/glm-5-turbo
       api_base: https://api.z.ai/api/coding/paas/v4
       api_key: os.environ/ZAI_API_KEY
 
-  - model_name: anthropic/glm-5-turbo
+  - model_name: zai/a/glm-5-turbo
     litellm_params:
       model: anthropic/glm-5-turbo
       api_base: https://api.z.ai/api/anthropic
       api_key: os.environ/ZAI_API_KEY
 
-  - model_name: anthropic/mimo-v2-omni
+  - model_name: xiaomi/a/mimo-v2-omni
     litellm_params:
       model: anthropic/mimo-v2-omni
       api_base: https://api.xiaomimimo.com/anthropic
       api_key: os.environ/XIAOMI_API_KEY
 
-  - model_name: anthropic/kimi-k2.5
+  - model_name: moonshot/a/kimi-2.5
     litellm_params:
       model: anthropic/kimi-k2.5
       api_base: https://api.moonshot.ai/anthropic
@@ -34,4 +34,4 @@ litellm_settings:
 
 router_settings:
   fallbacks:
-    - anthropic/glm-5-turbo: ["anthropic/kimi-k2.5"]
+    - zai/a/glm-5-turbo: ["moonshot/a/kimi-2.5"]
