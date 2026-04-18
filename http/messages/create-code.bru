@@ -1,0 +1,30 @@
+meta {
+  name: create-code
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_url}}/v1/messages
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+  x-api-key: {{master_key}}
+  anthropic-version: 2023-06-01
+}
+
+body:json {
+  {
+    "model": "anthropic-code",
+    "max_tokens": 100,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello! What model are you?"
+      }
+    ]
+  }
+}
