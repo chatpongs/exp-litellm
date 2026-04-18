@@ -33,5 +33,9 @@ litellm_settings:
   cooldown_time: 3600
 
 router_settings:
+  model_group_alias:
+    "a/code": "zai/a/glm-5-turbo"
+    "o/code": "zai/o/glm-5-turbo"
+    "a/pencil": "xiaomi/a/mimo-v2-omni"
   fallbacks:
     - zai/a/glm-5-turbo: ["moonshot/a/kimi-2.5"]
