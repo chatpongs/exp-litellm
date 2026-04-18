@@ -5,11 +5,17 @@ model_list:
       api_base: https://api.z.ai/api/coding/paas/v4
       api_key: os.environ/ZAI_API_KEY
 
-  - model_name: anthropic-code
+  - model_name: code
     litellm_params:
       model: anthropic/glm-5-turbo
       api_base: https://api.z.ai/api/anthropic
       api_key: os.environ/ZAI_API_KEY
+
+  - model_name: pencil
+    litellm_params:
+      model: anthropic/mimo-v2-omni
+      api_base: https://api.xiaomimimo.com/anthropic
+      api_key: os.environ/XIAOMI_API_KEY
 
   - model_name: kimi-k2.5
     litellm_params:
@@ -28,4 +34,4 @@ litellm_settings:
 
 router_settings:
   fallbacks:
-    - anthropic-code: ["kimi-k2.5"]
+    - code: ["kimi-k2.5"]
