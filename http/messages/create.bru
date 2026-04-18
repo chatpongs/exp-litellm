@@ -1,0 +1,28 @@
+meta {
+  name: create
+  type: http
+}
+
+post {
+  url: {{base_url}}/v1/messages
+  body: json
+}
+
+headers {
+  content-type: application/json
+  x-api-key: {{master_key}}
+  anthropic-version: 2023-06-01
+}
+
+body:json {
+  {
+    "model": "glm-5-turbo-anthropic",
+    "max_tokens": 100,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      }
+    ]
+  }
+}

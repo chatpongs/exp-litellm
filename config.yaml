@@ -5,6 +5,12 @@ model_list:
       api_base: https://api.z.ai/api/coding/paas/v4
       api_key: os.environ/ZAI_API_KEY
 
+  - model_name: glm-5-turbo-anthropic
+    litellm_params:
+      model: anthropic/glm-5-turbo
+      api_base: https://api.z.ai/api/anthropic
+      api_key: os.environ/ZAI_API_KEY
+
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
   database_url: "postgresql://postgres:postgres@host.docker.internal:5432/litellm"
