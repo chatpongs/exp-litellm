@@ -1,11 +1,11 @@
 meta {
-  name: openai-code
+  name: anthropic
   type: http
   seq: 1
 }
 
 post {
-  url: {{base_url}}/chat/completions
+  url: {{base_url}}/v1/messages
   body: json
   auth: none
 }
@@ -18,12 +18,12 @@ headers {
 
 body:json {
   {
-    "model": "openai/code",
+    "model": "anthropic/glm-5-turbo",
     "max_tokens": 100,
     "messages": [
       {
         "role": "user",
-        "content": "Hello!"
+        "content": "Hello! What model are you?"
       }
     ]
   }
