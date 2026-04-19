@@ -1,27 +1,42 @@
 model_list:
-  - model_name: zai/o/glm-5-turbo
+  # openai
+  - model_name: zai/glm-5.1
     litellm_params:
-      model: openai/glm-5-turbo
+      model: openai/glm-5.1
       api_base: https://api.z.ai/api/coding/paas/v4
       api_key: os.environ/ZAI_API_KEY
 
-  - model_name: zai/a/glm-5-turbo
+  - model_name: moonshot/kimi-2.5
     litellm_params:
-      model: anthropic/glm-5-turbo
+      model: openai/kimi-k2.5
+      api_base: https://api.moonshot.ai/v1
+      api_key: os.environ/MOONSHOT_API_KEY
+
+  # anthropic
+  - model_name: zai/glm-5.1/a
+    litellm_params:
+      model: anthropic/glm-5.1
       api_base: https://api.z.ai/api/anthropic
       api_key: os.environ/ZAI_API_KEY
 
-  - model_name: xiaomi/a/mimo-v2-omni
+  - model_name: xiaomi/mimo-v2-omni/a
     litellm_params:
       model: anthropic/mimo-v2-omni
       api_base: https://api.xiaomimimo.com/anthropic
       api_key: os.environ/XIAOMI_API_KEY
 
-  - model_name: moonshot/a/kimi-2.5
+  - model_name: moonshot/kimi-2.5/a
     litellm_params:
       model: anthropic/kimi-k2.5
       api_base: https://api.moonshot.ai/anthropic
       api_key: os.environ/MOONSHOT_API_KEY
+
+  # backup
+  - model_name: opencode-go/glm-5.1
+    litellm_params:
+      model: openai/glm-5.1
+      api_base: https://opencode.ai/zen/go/v1
+      api_key: os.environ/OPENCODE_API_KEY
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY
@@ -34,8 +49,10 @@ litellm_settings:
 
 router_settings:
   model_group_alias:
-    "a/code": "zai/a/glm-5-turbo"
-    "o/code": "zai/o/glm-5-turbo"
-    "a/pencil": "xiaomi/a/mimo-v2-omni"
+    "code": "zai/glm-5.1"
+    "code/a": "zai/glm-5.1/a"
+    "pencil/a": "xiaomi/mimo-v2-omni/a"
   fallbacks:
-    - zai/a/glm-5-turbo: ["moonshot/a/kimi-2.5"]
+    - code: ["moonshot/kimi-2.5"]
+    - code/a: ["moonshot/kimi-2.5/a"]
+    - pencil/a: ["moonshot/kimi-2.5/a"]
