@@ -38,6 +38,12 @@ model_list:
       api_base: https://opencode.ai/zen/go/v1
       api_key: os.environ/OPENCODE_API_KEY
 
+  - model_name: opencode-zen/gpt-5.4-nano
+    litellm_params:
+      model: openai/gpt-5.4-nano
+      api_base: https://opencode.ai/zen/v1
+      api_key: os.environ/OPENCODE_API_KEY
+
 general_settings:
   database_url: os.environ/DATABASE_URL
   master_key: os.environ/LITELLM_MASTER_KEY
@@ -49,10 +55,11 @@ litellm_settings:
 
 router_settings:
   model_group_alias:
-    "openai": "zai/glm-5.1"
+    "nano": "opencode-zen/gpt-5.4-nano"
+    "codex": "zai/glm-5.1"
     "claude": "zai/glm-5.1/a"
     "pencil": "xiaomi/mimo-v2-omni/a"
   fallbacks:
-    - openai: ["moonshot/kimi-2.5"]
+    - codex: ["moonshot/kimi-2.5"]
     - claude: ["moonshot/kimi-2.5/a"]
     - pencil: ["moonshot/kimi-2.5/a"]
