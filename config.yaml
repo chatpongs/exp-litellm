@@ -49,10 +49,10 @@ litellm_settings:
 
 router_settings:
   model_group_alias:
-    "code": "zai/glm-5.1"
-    "code/a": "zai/glm-5.1/a"
-    "pencil/a": "xiaomi/mimo-v2-omni/a"
+    "openai": "zai/glm-5.1"
+    "claude": "zai/glm-5.1/a"
+    "pencil": "xiaomi/mimo-v2-omni/a"
   fallbacks:
-    - code: ["moonshot/kimi-2.5"]
-    - code/a: ["moonshot/kimi-2.5/a"]
-    - pencil/a: ["moonshot/kimi-2.5/a"]
+    - openai: ["moonshot/kimi-2.5"]
+    - claude: ["moonshot/kimi-2.5/a"]
+    - pencil: ["moonshot/kimi-2.5/a"]
